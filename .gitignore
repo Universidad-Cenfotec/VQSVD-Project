@@ -1,0 +1,16 @@
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# Compilados de Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Configuración de IDEs
+.vscode/
+.idea/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
