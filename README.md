@@ -14,7 +14,7 @@ These instructions will help you set up the project on your local machine for de
 
 Make sure you have the following installed on your system:
 
-- [Python 3.8+](https://www.python.org/downloads/)
+- [Python 3.8](https://www.python.org/downloads/)
 - [Git](https://git-scm.com/)
 
 ## ⚙️ Setup Instructions
@@ -26,7 +26,7 @@ git clone https://github.com/Universidad-Cenfotec/VQSVD-Project.git
 # Navigate into the project directory
 cd VQSVD-Project
 
-# Create a virtual environment
+# Create a virtual environment (Remember that the env should be created with Python3.8)
 python -m venv .venv
 
 # Activate the virtual environment
@@ -36,7 +36,11 @@ python -m venv .venv
 # On macOS/Linux:
 source .venv/bin/activate
 
+# Upgrade pip 
+python -m pip install --upgrade pip
+
 # Install the required packages
+pip install paddlepaddle==2.3.0 -f https://www.paddlepaddle.org.cn/whl/windows/mkl/avx/stable.html
 pip install -r requirements.txt
 ```
 
