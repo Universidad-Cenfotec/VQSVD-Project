@@ -20,3 +20,6 @@ cvxpy<1.4.0
 clarabel<0.6.0
 rich
 imbalanced-learn
+qiskit_aer
+joblib
+numpy
