@@ -1,7 +1,3 @@
 source,wall_time,cpu_percent,ram_used_mb,profile_path
-solution_clean_paddle.py,135.09288573265076,103.76339285714315,806.1015625,Output/profile/profile_solution_clean_paddle_run1.prof
-solution_clean_paddle.py,132.76871800422668,103.77130961392916,787.4765625,Output/profile/profile_solution_clean_paddle_run2.prof
-solution_clean_paddle.py,137.8895661830902,103.59693877551044,794.21484375,Output/profile/profile_solution_clean_paddle_run3.prof
-solution_clean_pennylane.py,135.87284111976624,103.47433431952683,797.4765625,Output/profile/profile_solution_clean_pennylane_run1.prof
-solution_clean_pennylane.py,129.44040393829346,103.88338509316814,809.7734375,Output/profile/profile_solution_clean_pennylane_run2.prof
-solution_clean_pennylane.py,136.50175881385803,103.6825478645069,797.66015625,Output/profile/profile_solution_clean_pennylane_run3.prof
+solution_clean_paddle.py,10.151971101760864,146.3709999999998,783.9296875,Output/profile/profile_solution_clean_paddle_run1.prof
+solution_clean_pennylane.py,316.7520155906677,103.36217501585166,554.34375,Output/profile/profile_solution_clean_pennylane_run1.prof
