@@ -138,7 +138,7 @@ class LossPlot:
         plt.ylabel('loss')
         plt.title('VQSVD Loss Learning Curve')
         plt.grid(True)        
-        self.save_plot('figure_01.png')
+        self.save_plot('PL_figure_01.png')
         plt.show()
         plt.close()
         
@@ -156,7 +156,7 @@ class LossPlot:
         plt.ylabel('Norm Distance', fontsize = 14)
         leg = plt.legend(frameon=True)
         leg.get_frame().set_edgecolor('k')
-        self.save_plot('figure_02.png')
+        self.save_plot('PL_figure_02.png')
         plt.show()
         plt.close()
      
@@ -164,7 +164,7 @@ class LossPlot:
         plt.imshow(M, cmap="gray")
         plt.title(title)
         plt.colorbar()
-        self.save_plot('figure_03.png')
+        self.save_plot('PL_figure_03.png')
         plt.show()
         plt.close()
 
@@ -196,21 +196,8 @@ class MatGenerator:
         imag_part = np.random.randint(10, size=(size, size))
         M = real_part + 1j * imag_part
         return M.astype('complex128')
+    
 
-# Open the picture prepared in advance
-img = Image.open('../figures/MNIST_32.png')
-imgmat = np.array(list(img.getdata(band=0)), float)
-imgmat.shape = (img.size[1], img.size[0])
-imgmat = np.matrix(imgmat)/255
-
-
-
-# Convert the image into numpy array
-def Mat_generator():
-    imgmat = np.array(list(img.getdata(band=0)), float)
-    imgmat.shape = (img.size[1], img.size[0])
-    lenna = np.matrix(imgmat)
-    return lenna.astype('complex128')
 
 
 # Set circuit parameters
@@ -219,21 +206,19 @@ num_qubits = 5      # Number of qubits
 
 # Hyper-parameters
 RANK = 8            # Set the number of rank you want to learn
-ITR = 10           # Number of iterations
+ITR = 100           # Number of iterations
 LR = 0.02           # Learning rate
 SEED = 14           # Random number seed
 
 # Set the learning weight
 weight = np.arange(2 * RANK, 0, -2).astype('complex128')
 
-M_err = Mat_generator()
 
 loss_list, singular_value_list = [], []
 U_learned, V_dagger_learned = [], []
 matrix_gen = MatGenerator(num_qubits)
 mat = matrix_gen.from_image('../figures/MNIST_32.png')
-#mat = matrix_gen.random_matrix()
-#M_err = np.copy(mat)
+
 net = VQSVD(matrix=mat, weights=weight, num_qubits=num_qubits, depth=cir_depth, rank=RANK, lr=LR, itr=ITR, seed=SEED)
 loss_list, singular_value_list = net.train()
 
@@ -241,6 +226,8 @@ loss_list, singular_value_list = net.train()
 # Record the last two unitary matrices learned
 U_learned = net.get_matrix_U().numpy()
 V_dagger_learned = net.get_matrix_V().numpy().conj().T
+
+
 plot = LossPlot()
 plot.loss_plot(loss_list)
 
@@ -256,3 +243,4 @@ singular_value_pnp = pnp.array(singular_value_list[-1]) # This is still a pnp.nd
 singular_value = singular_value_pnp.numpy()
 mat = np.matrix(U_learned.real[:, :RANK]) * np.diag(singular_value[:RANK])* np.matrix(V_dagger_learned.real[:RANK, :])
 plot.plot_matrix_as_image(mat, title="Reconstruction via VQSVD")
+
