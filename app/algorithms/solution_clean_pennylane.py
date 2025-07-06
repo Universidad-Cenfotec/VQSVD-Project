@@ -243,4 +243,3 @@ singular_value_pnp = pnp.array(singular_value_list[-1]) # This is still a pnp.nd
 singular_value = singular_value_pnp.numpy()
 mat = np.matrix(U_learned.real[:, :RANK]) * np.diag(singular_value[:RANK])* np.matrix(V_dagger_learned.real[:RANK, :])
 plot.plot_matrix_as_image(mat, title="Reconstruction via VQSVD")
-
