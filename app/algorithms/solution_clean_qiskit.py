@@ -49,7 +49,7 @@ class VQSVD:
         for d in range(self.depth):
             for q in range(self.num_qubits):
                 qc.ry(params[d, 0, q], q)
-                qc.rz(params[d, 1, q], q)
+                #qc.rz(params[d, 1, q], q)
             for q in range(self.num_qubits - 1):
                 qc.cx(q, q + 1)
         return qc
@@ -275,7 +275,7 @@ class MatGenerator:
 circuit_depth = 40
 num_qubits = 5
 rank = 8
-iterations = 100
+iterations =10
 learning_rate = 0.02
 seed = 14
 
@@ -290,7 +290,7 @@ loss_list, singular_value_list = [], []
 U_learned, V_dagger_learned = [], []
 generator = MatGenerator(num_qubits)
 matrix = generator.from_image("../figures/MNIST_32.png")
-
+#matrix = generator.from_image("app/figures/MNIST_32.png")
 model = VQSVD(
         matrix=matrix,
         weights=weights,
