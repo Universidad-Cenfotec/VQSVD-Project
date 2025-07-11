@@ -1,0 +1,11 @@
+source,wall_time,cpu_percent,ram_used_mb,profile_path
+solution_clean_qiskit.py,20423.406403064728,8.214170021750197e-05,4.41796875,Output/profile/profile_solution_clean_qiskit_run1.prof
+solution_clean_qiskit.py,8014.624197006226,0.0005866394921299421,4.37109375,Output/profile/profile_solution_clean_qiskit_run2.prof
+solution_clean_qiskit.py,4890.85986161232,0.0,4.3984375,Output/profile/profile_solution_clean_qiskit_run3.prof
+solution_clean_qiskit.py,4854.734916210175,0.0,4.390625,Output/profile/profile_solution_clean_qiskit_run4.prof
+solution_clean_qiskit.py,4862.978253364563,0.0,4.41796875,Output/profile/profile_solution_clean_qiskit_run5.prof
+solution_clean_pennylane.py,3480.581343650818,0.0004542566709021601,4.41796875,Output/profile/profile_solution_clean_pennylane_run1.prof
+solution_clean_pennylane.py,3183.741337776184,0.0004940333298542254,4.41796875,Output/profile/profile_solution_clean_pennylane_run2.prof
+solution_clean_pennylane.py,3209.459331512451,0.0,4.41796875,Output/profile/profile_solution_clean_pennylane_run3.prof
+solution_clean_pennylane.py,3146.04022192955,0.0,4.41015625,Output/profile/profile_solution_clean_pennylane_run4.prof
+solution_clean_pennylane.py,3152.4906029701233,0.0014602161970583025,4.4140625,Output/profile/profile_solution_clean_pennylane_run5.prof
